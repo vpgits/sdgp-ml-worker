@@ -15,7 +15,7 @@ on:
 
 jobs:
   docker-build:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     environment: production
     steps:
       - name: Checkout
@@ -56,7 +56,7 @@ jobs:
         id: run-tests
         uses: direlines/runpod-test-runner@v1.7
         with:
-          image-tag: ${{ vars.DOCKERHUB_REPO }}/${{ vars.DOCKERHUB_IMG }}:latest
+          image-tag: vpgits/mistral-7b-v0.1-qagen-v2.1-awq:latest
           runpod-api-key: ${{ secrets.RUNPOD_API_KEY }}
           request-timeout: 600
 

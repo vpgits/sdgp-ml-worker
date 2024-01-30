@@ -7,6 +7,12 @@ ARG GH_ORG
 ARG GH_EMAIL
 ARG HUGGINGFACE_PAT
 
+# Python dependencies
+COPY builder/requirements.txt /requirements.txt
+RUN python3.11 -m pip install --upgrade pip && \
+    python3.11 -m pip install --upgrade -r /requirements.txt --no-cache-dir && \
+    rm /requirements.txt
+
 # Add src files (Worker Template)
 ADD src .
 
@@ -14,11 +20,5 @@ ADD src .
 COPY builder/download_model.sh /download_model.sh
 RUN /bin/bash /download_model.sh && \
     rm /download_model.sh
-
-# Python dependencies
-COPY builder/requirements.txt /requirements.txt
-RUN python3.11 -m pip install --upgrade pip && \
-    python3.11 -m pip install --upgrade -r /requirements.txt --no-cache-dir && \
-    rm /requirements.txt
 
 CMD python3.11 -u /handler.py
