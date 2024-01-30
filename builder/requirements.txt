@@ -6,3 +6,5 @@
 # To learn more, see https://pip.pypa.io/en/stable/reference/requirements-file-format/
 
 runpod==1.5.2
+autoawq==0.1.8
+transformers==4.37.2
