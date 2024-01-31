@@ -2,6 +2,7 @@
 # DockerHub -> https://hub.docker.com/r/runpod/base/tags
 FROM runpod/base:0.4.0-cuda12.1.0
 
+
 # Python dependencies
 COPY builder/requirements.txt /requirements.txt
 RUN python3.11 -m pip install --upgrade pip && \
