@@ -30,7 +30,7 @@ def generate(prompt, token_limit=512):
     with torch.no_grad():
         model_input = tokenizer(prompt, return_tensors="pt").input_ids.cuda()
         return tokenizer.decode(
-            model.generate(**model_input, max_new_tokens=token_limit)[0],
+            model.generate(model_input, max_new_tokens=token_limit)[0],
             skip_special_tokens=True,
         )
 
