@@ -15,12 +15,12 @@ logging.basicConfig(level=logging.INFO)
 
 logging.info("Loading model...")
 model = AutoAWQForCausalLM.from_quantized(
-    "/src/Mistral-7B-v0.1-qagen-v2.1-AWQ", device_map="auto"
+    "Mistral-7B-v0.1-qagen-v2.1-AWQ", device_map="auto"
 )
 logging.info("Model loaded.")
 logging.info("Loading tokenizer...")
 tokenizer = AutoTokenizer.from_pretrained(
-    "/src/Mistral-7B-v0.1-qagen-v2.1-AWQ", trust_remote_code=True, device_map="auto"
+    "Mistral-7B-v0.1-qagen-v2.1-AWQ", trust_remote_code=True, device_map="auto"
 )
 logging.info("Tokenizer loaded.")
 
